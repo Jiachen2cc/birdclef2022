@@ -1,0 +1,188 @@
+import torch
+
+class CONFIG:
+    num_class = 152
+    seed = 2022
+    epochs = 10 
+    model_name = 'tf_efficientnet_b0_ns'
+    embedding_size = 768
+    train_batch_size = 64
+    valid_batch_size = 128
+    learning_rate = 1e-4
+    scheduler = 'CosineAnnealingLR'
+    min_lr = 1e-6
+    T_max = 500
+    weight_decay = 1e-6
+    n_fold = 5
+    n_accumulate = 8
+    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+    competition = 'BirdCLEF22'
+    wandb_kernel = 'deb'
+    augs = ['white_noise', 'pink_noise', 'bandpass_noise', 'upper']
+    
+
+    #Audio specfic
+    sample_rate = 32000
+    max_time = 5
+    n_mels = 224
+    n_fft = 1024
+    len_check = 313
+    period = 30
+    
+    #label specific
+    target_columns = [
+        "afrsil1",
+        "akekee",
+        "akepa1",
+        "akiapo",
+        "akikik",
+        "amewig",
+        "aniani",
+        "apapan",
+        "arcter",
+        "barpet",
+        "bcnher",
+        "belkin1",
+        "bkbplo",
+        "bknsti",
+        "bkwpet",
+        "blkfra",
+        "blknod",
+        "bongul",
+        "brant",
+        "brnboo",
+        "brnnod",
+        "brnowl",
+        "brtcur",
+        "bubsan",
+        "buffle",
+        "bulpet",
+        "burpar",
+        "buwtea",
+        "cacgoo1",
+        "calqua",
+        "cangoo",
+        "canvas",
+        "caster1",
+        "categr",
+        "chbsan",
+        "chemun",
+        "chukar",
+        "cintea",
+        "comgal1",
+        "commyn",
+        "compea",
+        "comsan",
+        "comwax",
+        "coopet",
+        "crehon",
+        "dunlin",
+        "elepai",
+        "ercfra",
+        "eurwig",
+        "fragul",
+        "gadwal",
+        "gamqua",
+        "glwgul",
+        "gnwtea",
+        "golphe",
+        "grbher3",
+        "grefri",
+        "gresca",
+        "gryfra",
+        "gwfgoo",
+        "hawama",
+        "hawcoo",
+        "hawcre",
+        "hawgoo",
+        "hawhaw",
+        "hawpet1",
+        "hoomer",
+        "houfin",
+        "houspa",
+        "hudgod",
+        "iiwi",
+        "incter1",
+        "jabwar",
+        "japqua",
+        "kalphe",
+        "kauama",
+        "laugul",
+        "layalb",
+        "lcspet",
+        "leasan",
+        "leater1",
+        "lessca",
+        "lesyel",
+        "lobdow",
+        "lotjae",
+        "madpet",
+        "magpet1",
+        "mallar3",
+        "masboo",
+        "mauala",
+        "maupar",
+        "merlin",
+        "mitpar",
+        "moudov",
+        "norcar",
+        "norhar2",
+        "normoc",
+        "norpin",
+        "norsho",
+        "nutman",
+        "oahama",
+        "omao",
+        "osprey",
+        "pagplo",
+        "palila",
+        "parjae",
+        "pecsan",
+        "peflov",
+        "perfal",
+        "pibgre",
+        "pomjae",
+        "puaioh",
+        "reccar",
+        "redava",
+        "redjun",
+        "redpha1",
+        "refboo",
+        "rempar",
+        "rettro",
+        "ribgul",
+        "rinduc",
+        "rinphe",
+        "rocpig",
+        "rorpar",
+        "rudtur",
+        "ruff",
+        "saffin",
+        "sander",
+        "semplo",
+        "sheowl",
+        "shtsan",
+        "skylar",
+        "snogoo",
+        "sooshe",
+        "sooter1",
+        "sopsku1",
+        "sora",
+        "spodov",
+        "sposan",
+        "towsol",
+        "wantat1",
+        "warwhe1",
+        "wesmea",
+        "wessan",
+        "wetshe",
+        "whfibi",
+        "whiter",
+        "whttro",
+        "wiltur",
+        "yebcar",
+        "yefcan",
+        "zebdov",
+        ]
+    bird2id = {b:i for i,b in enumerate(target_columns)}
+    id2bird = {i:b for i,b in enumerate(target_columns)}
