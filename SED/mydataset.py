@@ -16,13 +16,14 @@ from utils import slabel2list
 target_list = ['barpet','ercfra','elepai','crehon','hawgoo','hawhaw','hawpet1','maupar','puaioh']
 #target_list1 = ['crehon', 'hawgoo', 'hawhaw', 'hawpet1', 'maupar', 'puaioh']
 target_list2 = ['akiapo','aniani','barpet','ercfra','elepai','hawcre','hawama','jabwar','houfin','warwhe1']
+
+# load source dataset from kaggle
 src_path = '../bird_cleff/Birdcall_data/train_audio/'
-target_path1 = '../target_bird/train_audio/'
-target_path2 = '../target_data/train_audio/' 
+# loda audio from source dataset for birds belong to the target kinds(the bird classes in target list)
 target_path = '../target_data/train_audio/'
+# load external dataset from freefield1010
 no_call_noise_path = '../freefield/rich_metadata.csv'
 noise_path = '../freefield/'
-long_seg_path = '../long_segment/train_audio/'
 
 #多个transform的封装函数
 class Compose:
